@@ -5,4 +5,5 @@ export interface IEmployee {
 	age: number;
 	hireDate: string;
 	employeeNumber: string;
+	notes: string;
 }
