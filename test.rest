@@ -1,0 +1,19 @@
+@url = http://localhost:3014
+
+### GET ALL EMPLOYEES
+GET {{url}}/employees
+
+### ADD AN EMPLOYEE
+POST {{url}}/employees
+content-type: application/json
+ 
+{
+    "firstName": "James",
+    "lastName": "Tester",
+    "age": 55,
+    "hireDate": "2020-01-01",
+    "employeeNumber": "D-8811"
+}
+
+### DELETE EMPLOYEE
+DELETE {{url}}/employees/c299
