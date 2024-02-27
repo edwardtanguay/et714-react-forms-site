@@ -23,7 +23,7 @@ export const PageEmployees = () => {
 		<>
 			{employees.length === 0 ? (
 				<p className="p-4">
-					<ImSpinner9 className="spinner text-6xl text-slate-700" />
+					<ImSpinner9 className="animate-spin text-6xl text-slate-700" />
 				</p>
 			) : (
 				<p>There are {employees.length} employees:</p>
