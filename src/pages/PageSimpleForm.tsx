@@ -1,4 +1,5 @@
-import axios from "axios";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import axios, { AxiosResponse } from "axios";
 import { FormEvent } from "react";
 
 export const PageSimpleForm = () => {
@@ -6,19 +7,26 @@ export const PageSimpleForm = () => {
 		event.preventDefault();
 		const formData = new FormData(event.target as HTMLFormElement);
 		const employee = JSON.stringify(Object.fromEntries(formData));
-
 		(async () => {
 			const headers = {
 				"Access-Control-Allow-Origin": "*",
 				"Content-Type": "application/json",
 			};
+			try {
+				const response: AxiosResponse = await axios.post(
+					"http://localhost:3014/employees",
+					employee,
+					{ headers }
+				);
 
-			const response = await axios.post(
-				"http://localhost:3014/employees",
-				employee,
-				{ headers }
-			);
-			console.log(response);
+				if (response.status === 201) {
+					// navigate("/employees");
+				} else {
+					console.log(`ERROR: ${response.status}`);
+				}
+			} catch (error: any) {
+				console.log(`ERROR: ${error.message}`);
+			}
 		})();
 	};
 	return (
