@@ -1,12 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosResponse } from "axios";
 import { FormEvent } from "react";
+import { IEmployee } from "../interfaces";
 
 export const PageSimpleForm = () => {
 	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const formData = new FormData(event.target as HTMLFormElement);
-		const employee = Object.fromEntries(formData);
+		const employee: IEmployee = (Object.fromEntries(formData) as unknown)  as IEmployee;
+		employee.age = Number(employee.age);
 		(async () => {
 			const headers = {
 				"Access-Control-Allow-Origin": "*",
