@@ -1,16 +1,29 @@
+import axios from "axios";
 import { FormEvent } from "react";
 
 export const PageSimpleForm = () => {
-
-
 	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		const data = new FormData(event.target as HTMLFormElement);
-		console.log(data);
-	}
+		const formData = new FormData(event.target as HTMLFormElement);
+		const employee = JSON.stringify(Object.fromEntries(formData));
+
+		(async () => {
+			const headers = {
+				"Access-Control-Allow-Origin": "*",
+				"Content-Type": "application/json",
+			};
+
+			const response = await axios.post(
+				"http://localhost:3014/employees",
+				employee,
+				{ headers }
+			);
+			console.log(response);
+		})();
+	};
 	return (
 		<form onSubmit={handleFormSubmit}>
-			<fieldset className="border border-gray-500 p-4 w-full sm:w-40 rounded">
+			<fieldset className="w-full rounded border border-gray-500 p-4 sm:w-40">
 				<legend>New Employee</legend>
 
 				<div className="mb-4 flex gap-2">
@@ -36,7 +49,13 @@ export const PageSimpleForm = () => {
 					<label className="w-[10rem]" htmlFor="age">
 						Age:
 					</label>
-					<input type="number" defaultValue="34" id="age" name="age" required />
+					<input
+						type="number"
+						defaultValue="34"
+						id="age"
+						name="age"
+						required
+					/>
 				</div>
 
 				<div className="mb-4 flex gap-2">
@@ -70,7 +89,9 @@ export const PageSimpleForm = () => {
 				</div>
 
 				<div className="mt-5 flex justify-end pr-3 ">
-					<button className="bg-slate-700 text-slate-300 py-1 px-2 rounded">Add Employee</button>
+					<button className="rounded bg-slate-700 px-2 py-1 text-slate-300">
+						Add Employee
+					</button>
 				</div>
 			</fieldset>
 		</form>

@@ -1,12 +1,12 @@
 {
-  "employees": [
-    {
-      "id": "c3f0",
-      "firstName": "James",
-      "lastName": "Tester",
-      "age": 55,
-      "hireDate": "2020-01-01",
-      "employeeNumber": "D-8811"
-    }
-  ]
+	"employees": [
+		{
+			"id": "c3f0",
+			"firstName": "James",
+			"lastName": "Tester",
+			"age": 55,
+			"hireDate": "2020-01-01",
+			"employeeNumber": "D-8811"
+		}
+	]
 }
