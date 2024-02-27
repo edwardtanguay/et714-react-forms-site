@@ -25,6 +25,15 @@
       "employeeNumber": "S-8272",
       "notes": "test 8",
       "id": 5
+    },
+    {
+      "firstName": "James",
+      "lastName": "Brently",
+      "age": 23,
+      "hireDate": "2024-02-14",
+      "employeeNumber": "D-8271",
+      "notes": "test 9",
+      "id": 6
     }
   ]
 }
