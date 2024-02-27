@@ -2,12 +2,13 @@
 import axios, { AxiosResponse } from "axios";
 import { FormEvent } from "react";
 import { IEmployee } from "../interfaces";
+import * as config from '../config';
 
 export const PageSimpleForm = () => {
 	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const formData = new FormData(event.target as HTMLFormElement);
-		const employee: IEmployee = (Object.fromEntries(formData) as unknown)  as IEmployee;
+		const employee: IEmployee = (Object.fromEntries(formData) as unknown) as IEmployee;
 		employee.age = Number(employee.age);
 		(async () => {
 			const headers = {
@@ -16,7 +17,7 @@ export const PageSimpleForm = () => {
 			};
 			try {
 				const response: AxiosResponse = await axios.post(
-					"http://localhost:3014/employees",
+					`${config.getBackendUrl()}/employees`,
 					JSON.stringify(employee),
 					{ headers }
 				);

@@ -7,6 +7,15 @@
       "hireDate": "2020-01-01",
       "employeeNumber": "D-8811",
       "id": 3
+    },
+    {
+      "firstName": "Susan",
+      "lastName": "Rampart",
+      "age": 54,
+      "hireDate": "2024-02-17",
+      "employeeNumber": "S-7832",
+      "notes": "test 4",
+      "id": 4
     }
   ]
 }
