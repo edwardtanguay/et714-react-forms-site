@@ -8,6 +8,15 @@
       "employeeNumber": "S-8234",
       "notes": "test 1",
       "id": 1
+    },
+    {
+      "firstName": "Harold",
+      "lastName": "Smith",
+      "age": "22",
+      "hireDate": "2024-02-07",
+      "employeeNumber": "M-8734",
+      "notes": "test 2",
+      "id": 2
     }
   ]
 }

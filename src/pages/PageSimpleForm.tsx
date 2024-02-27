@@ -6,7 +6,7 @@ export const PageSimpleForm = () => {
 	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const formData = new FormData(event.target as HTMLFormElement);
-		const employee = JSON.stringify(Object.fromEntries(formData));
+		const employee = Object.fromEntries(formData);
 		(async () => {
 			const headers = {
 				"Access-Control-Allow-Origin": "*",
@@ -15,7 +15,7 @@ export const PageSimpleForm = () => {
 			try {
 				const response: AxiosResponse = await axios.post(
 					"http://localhost:3014/employees",
-					employee,
+					JSON.stringify(employee),
 					{ headers }
 				);
 
