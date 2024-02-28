@@ -40,7 +40,15 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/",
-				element: <Navigate to="/simple-form" replace />,
+				element: (
+					<>
+						{config.getEnvironment() === "development" ? (
+							<Navigate to="/simple-form" replace />
+						) : (
+							<Navigate to="/employees" replace />
+						)}
+					</>
+				),
 			},
 		],
 	},
