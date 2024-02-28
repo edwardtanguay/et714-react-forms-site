@@ -43,6 +43,15 @@
       "employeeNumber": "D-8347",
       "notes": "sdfsdf",
       "id": 7
+    },
+    {
+      "firstName": "James",
+      "lastName": "McDash",
+      "age": 44,
+      "hireDate": "2024-02-07",
+      "employeeNumber": "D-8287",
+      "notes": "new employee",
+      "id": 8
     }
   ]
 }
