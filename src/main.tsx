@@ -1,11 +1,16 @@
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
+import {
+	createBrowserRouter,
+	Navigate,
+	RouterProvider,
+} from "react-router-dom";
 import "./index.scss";
 import { PageEmployees } from "./pages/PageEmployees.tsx";
 import { PageAbout } from "./pages/PageAbout.tsx";
 import { Page404 } from "./pages/Page404.tsx";
 import { PageSimpleForm } from "./pages/PageSimpleForm.tsx";
+import * as config from "./config.ts";
 
 const router = createBrowserRouter([
 	{
@@ -15,7 +20,15 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: "/simple-form",
-				element: <PageSimpleForm />,
+				element: (
+					<>
+						{config.getEnvironment() === "development" ? (
+							<PageSimpleForm />
+						) : (
+							<p>no access</p>
+						)}
+					</>
+				),
 			},
 			{
 				path: "employees",
